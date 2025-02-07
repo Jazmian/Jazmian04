@@ -223,6 +223,22 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+
+document.addEventListener("DOMContentLoaded", function () {
+  const videos = document.querySelectorAll("video");
+
+  videos.forEach(video => {
+      video.addEventListener("play", function () {
+          videos.forEach(otherVideo => {
+              if (otherVideo !== video) {
+                  otherVideo.pause(); // Pausa los otros videos
+              }
+          });
+      });
+  });
+});
+
+
 // JavaScript para mostrar la sorpresa
 document.getElementById('sorpresa-btn').addEventListener('click', function() {
     const contenido = document.getElementById('sorpresa-content');
